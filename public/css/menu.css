@@ -1,0 +1,130 @@
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: rgba(104, 19, 6, 1);
+}
+
+.navbar-brand {
+  font-family: "Aclonica", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 27px;
+  text-align: center;
+  letter-spacing: 0.015em;
+}
+
+.nav-link.active {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 32px;
+  color: #ff8a00;
+}
+
+.nav-link {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 32px;
+}
+
+.text3 {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 40px;
+}
+
+.img1 {
+  color: white;
+  font-family: "Outfit";
+  font-size: 35px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.gambar1 {
+  height: 100px;
+}
+
+.gambar2 {
+  height: 145px;
+  width: 900px;
+  background-color: #ff8a00;
+  border-radius: 35px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.img1:hover {
+  color: rgba(104, 19, 6, 1);
+}
+
+.card-body h4 {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #ff8a00;
+}
+
+.card-body p {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+.card {
+  box-sizing: border-box;
+  width: 270px;
+  height: 243.45px;
+  border: 1px solid #ff8a00;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.text4 {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.icon {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 250px;
+  top: 670px;
+}
+
+.icon1 {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  left: 1400px;
+  top: -5px;
+}
+
+.slide {
+  width: 80%;
+  height: 50%;
+  margin-top: 20px;
+}
+
+.carousel-control-prev {
+  margin-left: -11%;
+}
+
+.carousel-control-next {
+  margin-right: -11%;
+}
