@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a href="<?= base_url("/order/food") ?>" class="nav-link py-3 border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="<?= base_url("/order") ?>" class="nav-link py-3 border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src=<?= base_url("./Assets/images/eat.png") ?> height="35px" width="35px" alt="Food" />
           </a>
         </li>
@@ -66,73 +66,49 @@
       </div>
       <div class="container card-produk">
         <div class="row gap-4">
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/ayran.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Ayran</p>
-              <p class="detail-produk">Minuman berbahan dasar yogurt asam dingin, Bahan-bahan utamanya adalah yogurt, air dan garam.</p>
-              <p class="harga-produk mb-0">Rp. 30.000</p>
+          <?php foreach ($product as $p) : ?>
+            <div class="card bg-transparent card-order p-2" style="width: 226px">
+              <button type="button" class="btn btn-transparent text-white" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $p['id']; ?>">
+                <img src="../Assets/images/<?= $p['gambar']; ?>" class="card-img-top" alt="..." />
+                <div class="card-body p-1">
+                  <p class="nama-produk mb-1"><?= $p['nama']; ?></p>
+                  <p class="detail-produk"><?= $p['keterangan']; ?></p>
+                  <p class="harga-produk mb-0">Rp. <?= $p['harga']; ?></p>
+                </div>
+              </button>
             </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/arabian coffe.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Arabian coffee</p>
-              <p class="detail-produk">Kopi yang diseduh dari biji kopi arabika. Dengan rempah-rempah seperti kapulaga, jahe, serai, cengkih, kayu manis.</p>
-              <p class="harga-produk mb-0">Rp. 25.000</p>
+          <?php endforeach; ?>
+          <!-- Modal -->
+          <?php foreach ($product as $p) : ?>
+            <div class="modal text-dark fade" id="exampleModal<?= $p['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header d-flex">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?= $p['nama']; ?></h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rp. <?= $p['harga']; ?></h1>
+                  </div>
+                  <div class="modal-body">
+                    <h6 class="fw-bold">Total Harga :</h6>
+                    <h6 class="fw-normal">Rp 160000</h6>
+                    <h6 class="fw-bold">Jumlah :</h6>
+                    <div class="d-flex align-items-center">
+                      <button type="button" class="btn btn-dark"><i class="bi bi-plus"></i></button>
+                      <h6 class="fw-normal m-3">1</h6>
+                      <button type="button" class="btn btn-dark"><i class="bi bi-dash"></i></button>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Pesan</button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/saffron milk.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Saffron Milk</p>
-              <p class="detail-produk">Susu unta dengan helaian saffron. Dengan ditaburi buah-buahan & kacang-kacangan kering diatas nya.</p>
-              <p class="harga-produk mb-0">Rp. 20.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/tamer hindi.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Tamer Hindi</p>
-              <p class="detail-produk">Perpaduan antara asam jawa dan cairan gula. Sehingga menghasilkan rasa asam segar.</p>
-              <p class="harga-produk mb-0">Rp. 30.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/qishr.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Qishr</p>
-              <p class="detail-produk">Minuman hangat yang terbuat dari kopi, jahe, kapulaga, dan kayu manis.</p>
-              <p class="harga-produk mb-0">Rp. 35.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/sahlab.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Sahlab</p>
-              <p class="detail-produk">Terbuat dari susu, gula, dan bubuk yang terbuat dari umbi-umbian, yang membuatnya lebih creamy.</p>
-              <p class="harga-produk mb-0">Rp. 35.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/Haleeb Ma' Hal.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Haleeb Ma' Hal</p>
-              <p class="detail-produk">Susu yang terbuat dari campuran kapulaga dan bermanfaat untuk menghangatkan perut.</p>
-              <p class="harga-produk mb-0">Rp. 25.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Drink/karkadeh.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Karkadeh</p>
-              <p class="detail-produk">Terbuat dari sejenis bunga yang disebut dengan Hibiscus Sabdariffa. ditambahkan cranberry, gula, dan madu.</p>
-              <p class="harga-produk mb-0">Rp. 20.000</p>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
+
     <!-- end Content -->
 
     <!-- RightBar -->
@@ -212,6 +188,7 @@
       <button type="button" class="btn btn-checkout">CheckOut</button>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>

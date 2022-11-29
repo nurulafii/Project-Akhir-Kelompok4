@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a href="<?= base_url("order/food") ?>" class="nav-link active py-3 border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="<?= base_url("order") ?>" class="nav-link active py-3 border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src="assets/images/eat.png" height="35px" width="35px" alt="Food" />
           </a>
         </li>
@@ -66,70 +66,16 @@
       </div>
       <div class="container card-produk">
         <div class="row gap-4">
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/order1.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Lamb Kabuli</p>
-              <p class="detail-produk">Nasi yang dimasak bersama kaldu daging kambing, susu kambing, dan minyak samin, disajikan dengan daging kambing.</p>
-              <p class="harga-produk mb-0">Rp. 50.000</p>
+          <?php foreach ($product as $p) : ?>
+            <div class="card bg-transparent card-order p-2" style="width: 226px">
+              <img src="./Assets/images/<?= $p['gambar']; ?>" class="card-img-top" alt="..." />
+              <div class="card-body p-1">
+                <p class="nama-produk mb-1"><?= $p['nama']; ?></p>
+                <p class="detail-produk"><?= $p['keterangan']; ?></p>
+                <p class="harga-produk mb-0">Rp. <?= $p['harga']; ?></p>
+              </div>
             </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Rectangle 14.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Chicken Kabuli</p>
-              <p class="detail-produk">Nasi yang dimasak bersama kaldu daging kambing, susu kambing, dan minyak samin, disajikan dengan daging ayam.</p>
-              <p class="harga-produk mb-0">Rp. 45.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Lamb Mandhi.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Lamb Mandhi</p>
-              <p class="detail-produk">Nasi yang dimasak dengan oven logam sehingga ber aroma smokey, dengan rempah-rempah berkualitas dan disajikan dengan daging kambing.</p>
-              <p class="harga-produk mb-0">Rp. 60.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Chicken Mandhi.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Chicken Mandhi</p>
-              <p class="detail-produk">Nasi yang dimasak dengan oven logam sehingga ber aroma smokey, dengan rempah-rempah berkualitas dan disajikan dengan daging ayam.</p>
-              <p class="harga-produk mb-0">Rp. 50.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Shawarma.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Shawarma</p>
-              <p class="detail-produk">Roti pita/tortilla dengan isian daging dan sayuran dengan saus hummus dan tahini.</p>
-              <p class="harga-produk mb-0">Rp. 35.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Tabbouleh.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Tabbouleh</p>
-              <p class="detail-produk">Hidangan dari tomat, potongan paterseli, mint, bulgur, daun bawang, dan dibumbui dengan minyak zaitun & perasan lemon.</p>
-              <p class="harga-produk mb-0">Rp. 40.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Lamb Curry.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Lamb Curry</p>
-              <p class="detail-produk">Makanan berkuah santan dengan potongan daging kambing dan rempah-rempah pilihan sehingga membuat kaya rasa.</p>
-              <p class="harga-produk mb-0">Rp. 50.000</p>
-            </div>
-          </div>
-          <div class="card bg-transparent card-order p-2" style="width: 226px">
-            <img src="./Assets/images/Food/Canay Bread.png" class="card-img-top" alt="..." />
-            <div class="card-body p-1">
-              <p class="nama-produk mb-1">Canay Bread</p>
-              <p class="detail-produk">Makanan yang berbahan dasar tepung gandum berbentuk tipis bundar, berlapis dan memiliki tekstur. disajikan bersama saus curry</p>
-              <p class="harga-produk mb-0">Rp. 35.000</p>
-            </div>
-          </div>
+          <?php endforeach; ?>
         </div>
       </div>
     </div>
@@ -146,12 +92,6 @@
           <div class="detail-card ps-2">
             <h4 class="nama-produk-card">Sahlab</h4>
             <h4 class="harga-produk-card pt-2">Rp 50.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
           </div>
         </div>
         <div class="header-card pt-3">
@@ -164,32 +104,6 @@
               <span class="badge text-bg-light">1</span>
               <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
               <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="header-card pt-3">
-          <img src="./Assets/images/order1.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Lamb Kabulii</h4>
-            <h4 class="harga-produk-card pt-2">Rp 50.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="header-card pt-3">
-          <img src="./Assets/images/Rectangle 14.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Chicken Kabuli</h4>
-            <h4 class="harga-produk-card pt-2">Rp 45.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light" style="height: 20px; width: 20px"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light" style="height: 20px; width: 20px"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3" style="height: 20px; width: 20px"><i class="bi bi-trash3-fill" style="height: 10px; width: 10px"></i></button>
             </div>
           </div>
         </div>
