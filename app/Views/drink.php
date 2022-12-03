@@ -48,145 +48,44 @@
         <li>
           <a href="#" class="nav-link py-3 border-bottom" title="cart" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src=<?= base_url("./Assets/images/cart.png") ?> height="35px" width="35px" alt="Cart" />
+            <span class="position-absolute top-80 start-25 translate-middle badge rounded-circle bg-danger">
+              <span><?= $total; ?></span>
+            </span>
           </a>
         </li>
       </ul>
     </div>
 
     <!-- Content -->
-    <div class="container content">
+    <div class="container-fluid content">
       <div class="header-content d-flex align-items-baseline justify-content-between">
         <a class="navbar-brand text-white" href="/"> Nurv<span style="color: rgba(255, 138, 0, 1)">Albiky</span></a>
-        <div class="input-group mb-3 w-50">
-          <div class="input-group-prepend">
-            <span class="input-group-text bg-transparent" id="basic-addon1"><i class="bi bi-search"></i></span>
-          </div>
-          <input type="text" class="form-control search bg-transparent text-white" placeholder="search product..." aria-label="Username" aria-describedby="basic-addon1" />
-        </div>
       </div>
-      <div class="container card-produk">
-        <div class="row gap-4">
+      <div class="container-fluid mt-4 card-produk">
+        <div class="d-flex flex-wrap ms-5 gap-4">
           <?php foreach ($product as $p) : ?>
+
             <div class="card bg-transparent card-order p-2" style="width: 226px">
-              <button type="button" class="btn btn-transparent text-white" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $p['id']; ?>">
+              <form action="/order/save" method="POST" enctype="multipart/form-data">
                 <img src="../Assets/images/<?= $p['gambar']; ?>" class="card-img-top" alt="..." />
                 <div class="card-body p-1">
                   <p class="nama-produk mb-1"><?= $p['nama']; ?></p>
                   <p class="detail-produk"><?= $p['keterangan']; ?></p>
-                  <p class="harga-produk mb-0">Rp. <?= $p['harga']; ?></p>
-                </div>
-              </button>
+                  <p class="harga-produk mt-3">Rp. <?= $p['harga']; ?></p>
+                  <input type="text" name="nama" class="form-control visually-hidden" value="<?= $p['nama']; ?>">
+                  <input type="text" name="gambar" class="form-control visually-hidden" value="<?= $p['gambar']; ?>">
+                  <input type="text" name="harga" class="form-control visually-hidden" value="<?= $p['harga']; ?>">
+                  <input type="text" name="quantity" class="form-control visually-hidden" value="1">
+                  <button type="submit" class="btn btn-add" name="add">Add to Cart <i></i></button>
+              </form>
             </div>
-          <?php endforeach; ?>
-          <!-- Modal -->
-          <?php foreach ($product as $p) : ?>
-            <div class="modal text-dark fade" id="exampleModal<?= $p['id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header d-flex">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel"><?= $p['nama']; ?></h1>
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Rp. <?= $p['harga']; ?></h1>
-                  </div>
-                  <div class="modal-body">
-                    <h6 class="fw-bold">Total Harga :</h6>
-                    <h6 class="fw-normal">Rp 160000</h6>
-                    <h6 class="fw-bold">Jumlah :</h6>
-                    <div class="d-flex align-items-center">
-                      <button type="button" class="btn btn-dark"><i class="bi bi-plus"></i></button>
-                      <h6 class="fw-normal m-3">1</h6>
-                      <button type="button" class="btn btn-dark"><i class="bi bi-dash"></i></button>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Pesan</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <?php endforeach; ?>
         </div>
+      <?php endforeach; ?>
       </div>
     </div>
 
     <!-- end Content -->
 
-    <!-- RightBar -->
-    <div class="d-flex flex-column flex-shrink-0 p-4 right-navbar">
-      <div class="header-container">
-        <h3 class="header-right-navbar">Your Order</h3>
-      </div>
-      <div class="container-produk-order">
-        <div class="header-card pt-2">
-          <img src="./Assets/images/Drink/sahlab.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Sahlab</h4>
-            <h4 class="harga-produk-card pt-2">Rp 50.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="header-card pt-3">
-          <img src="./Assets/images/Drink/Haleeb Ma' Hal.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Haleeb Ma' Hal</h4>
-            <h4 class="harga-produk-card pt-2">Rp 25.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="header-card pt-3">
-          <img src="./Assets/images/order1.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Lamb Kabulii</h4>
-            <h4 class="harga-produk-card pt-2">Rp 50.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="header-card pt-3">
-          <img src="./Assets/images/Rectangle 14.png" alt="" width="100px" height="80px" />
-          <div class="detail-card ps-2">
-            <h4 class="nama-produk-card">Chicken Kabuli</h4>
-            <h4 class="harga-produk-card pt-2">Rp 45.000</h4>
-            <div class="button-card">
-              <button type="button" class="btn btn-light"><i class="bi bi-plus"></i></button>
-              <span class="badge text-bg-light">1</span>
-              <button type="button" class="btn btn-light"><i class="bi bi-dash"></i></button>
-              <button type="button" class="btn btn-light ms-3"><i class="bi bi-trash3-fill"></i></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container-total">
-        <div class="total-space">
-          <p class="mb-1">Subtotal</p>
-          <p class="mb-1">Rp. 155.000</p>
-        </div>
-        <div class="total-space">
-          <p class="mb-2">Tax</p>
-          <p class="mb-2">Rp. 15.500</p>
-        </div>
-        <hr class="hr-total" />
-        <div class="total-space">
-          <h6>Total</h6>
-          <h6>Rp. 165.500</h6>
-        </div>
-      </div>
-      <button type="button" class="btn btn-checkout">CheckOut</button>
-    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
