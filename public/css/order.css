@@ -35,7 +35,7 @@
 
 .left-navbar {
   background-color: #ff8a00;
-  height: 150vh;
+  height: 100vh;
 }
 
 .nav-link.active {
@@ -45,6 +45,8 @@
 .content {
   background-color: #681306;
   margin: 0;
+  height: 100vh;
+  overflow-x: auto;
 }
 
 .navbar-brand {

@@ -58,9 +58,7 @@
 
     <!-- Content -->
     <div class="container-fluid content">
-      <div class="header-content d-flex align-items-baseline justify-content-between">
-        <a class="navbar-brand text-white" href="/"> Nurv<span style="color: rgba(255, 138, 0, 1)">Albiky</span></a>
-      </div>
+      <a class="navbar-brand text-white" href="/"> Nurv<span style="color: rgba(255, 138, 0, 1)">Albiky</span></a>>
       <div class="container-fluid mt-4 card-produk">
         <div class="d-flex flex-wrap ms-5 gap-4">
           <?php foreach ($product as $p) : ?>
@@ -83,11 +81,7 @@
       <?php endforeach; ?>
       </div>
     </div>
-
-    <!-- end Content -->
-
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
 </html>
