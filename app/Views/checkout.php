@@ -91,7 +91,9 @@
                                             <p class="mb-1"><i>Rp. <?= $p['harga']; ?></i></p>
                                         </div>
                                         <div class="d-flex justify-content-between">
-                                            <p class="mb-1">Rp. <?= $p['harga'] * $p['quantity']; ?> </p>
+                                            <p data-subtotal="<?= $p['harga'] * $p['quantity']; ?>" class="subtotal mb-1" onchange="handleSubtotal()">
+                                                Rp. <?= $p['harga'] * $p['quantity']; ?>
+                                            </p>
                                             <p class="mb-1">x <?= $p['quantity']; ?> </p>
                                             <button type="button" class="edit-order ms-5" data-bs-toggle="modal" data-bs-target="#exampleModal<?= $p['id']; ?>">
                                                 <i class="bi bi-pen"></i>
@@ -112,11 +114,7 @@
                                                         <form action="/checkout/update/<?= $p['id']; ?>" method="POST" enctype="multipart/form-data">
                                                             <div class="modal-body">
                                                                 <label for="exampleFormControlInput1" class="form-label">Quantity Order :</label>
-                                                                <input type="text" name="hargaSelect" id="hargaSelect" value="<?= $p['harga'] ?>">
-                                                                <input type="text" name="total" id="total" value="<?= $p['harga'] ?>">
-
-                                                                <input type="text" name="subtotal" id="subtotal">
-                                                                <input type="text" pattern="[0-9]" name="quantityEdit" id="quantityEdit" value="<?= $p['quantity'] ?>" required onkeyup="editQuantity()">
+                                                                <input type="text" pattern="[0-9]" name="quantityEdit" id="quantityEdit" value="<?= $p['quantity'] ?>" required onkeyup="editQuantity(this)">
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -164,6 +162,13 @@
                 } else {
                     alert("masukkan nama terlebih dahulu")
                 }
+            }
+
+            function handleSubtotal() {
+                const subtotals = document.querySelectorAll('.subtotal')
+                subtotals.forEach(subtotal => {
+                    console.log(subtotal)
+                })
             }
 
             function editQuantity(e) {
