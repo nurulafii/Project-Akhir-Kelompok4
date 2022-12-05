@@ -81,7 +81,7 @@
                 </div>
                 <div class="container-checkout mt-1">
                     <div class="d-flex flex-column mt-3">
-                        <?php foreach ($product as $p) : ?>
+                        <?php foreach ($product as $i => $p) : ?>
                             <div class="card mb-3 bg-transparent border-0" style="width: 70% ;">
                                 <div class=" d-flex">
                                     <img src="../Assets/images/<?= $p['gambar']; ?>" class="card-img-top" alt="..." style="height: 100px; width:150px" />
@@ -112,6 +112,7 @@
                                                         <form action="/checkout/update/<?= $p['id']; ?>" method="POST" enctype="multipart/form-data">
                                                             <div class="modal-body">
                                                                 <label for="exampleFormControlInput1" class="form-label">Quantity Order :</label>
+                                                                <input type="text" name="id" id="id" class="form-control " value="<?= $p['id'] ?>">
                                                                 <input type="text" name="harga" id="harga" class="form-control " value="<?= $p['harga'] ?>">
                                                                 <input type="text" name="total" id="total" class="form-control" value="<?= $p['total'] ?>">
                                                                 <input type="text" pattern="[0-9]" name="quantityEdit" id="quantityEdit" value="<?= $p['quantity'] ?>" onkeyup="editQuantity(this)" required>
@@ -164,13 +165,14 @@
             }
 
             function editQuantity(e) {
-                const harga = document.getElementById("harga").value;
-                console.log(harga)
+                const id = document.getElementsByName("id").value;
+                console.log(e)
+                console.log(id)
                 const quantity = e.value
                 console.log(quantity)
                 const total = quantity * harga
                 console.log(total)
-                document.getElementById('total').value = total;
+                document.getElementsByName('total').value = total;
             }
         </script>
 </body>
