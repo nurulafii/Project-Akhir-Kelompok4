@@ -25,7 +25,7 @@ $routes->set404Override();
 // where controller filters or CSRF protection are bypassed.
 // If you don't want to define all routes, please use the Auto Routing (Improved).
 // Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-$routes->setAutoRoute(true);
+$routes->setAutoRoute(false);
 
 /*
  * --------------------------------------------------------------------
@@ -36,11 +36,17 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-// $routes->get('/menu', 'Menu::index');
-// $routes->get('/order', 'Order::index');
-// $routes->get('/order/drink', 'Order::drink');
-// $routes->get('/order/food', 'Order::food');
-// $routes->post('/order/save', 'Order::save');
+$routes->get('/menu', 'Menu::index');
+$routes->get('/order', 'Order::index');
+$routes->get('/order/drink', 'Order::drink');
+$routes->get('/order/food', 'Order::food');
+$routes->post('/order/save', 'Order::save');
+$routes->get('/checkout', 'Checkout::index');
+$routes->add('checkout/update/(:num)', 'Checkout::update/$1');
+$routes->delete('/checkout/delete_order/(:num)', 'Checkout::delete_order/$1');
+$routes->get('/checkout/delete_all', 'Checkout::delete_all');
+
+
 
 
 

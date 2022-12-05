@@ -24,19 +24,17 @@
 </head>
 
 <body>
-  <div class="d-flex">
+  <div class="d-flex flex-row">
     <div class="d-flex flex-column flex-shrink-0 left-navbar" style="width: 4.5rem">
-      <a href="/" class="d-block p-3 link-dark text-decoration-none" title="Logo" data-bs-toggle="tooltip" data-bs-placement="right">
-        <img src="Assets/images/Logo.png" alt="" width="35" height="35" />
-      </a>
       <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+        <img src="Assets/images/Logo.png" alt="" width="35" height="35" class="mb-1 mt-2 ms-3" />
         <li class="nav-item">
           <a href=" <?= base_url("/") ?>" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src="./Assets/images/homepage.png" height="35px" width="35px" alt="homepage" />
           </a>
         </li>
         <li>
-          <a href="<?= base_url("order") ?>" class="nav-link active py-3 border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="<?= base_url("order") ?>" class="nav-link py-3 active border-bottom" title="Food" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src="assets/images/eat.png" height="35px" width="35px" alt="Food" />
           </a>
         </li>
@@ -46,7 +44,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="cart" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="<?= base_url("checkout") ?>" class="nav-link  py-3 border-bottom" title="cart" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src="Assets/images/cart.png" height="35px" width="35px" alt="Cart" />
             <span class="position-absolute top-80 start-25 translate-middle badge rounded-circle bg-danger">
               <span><?= $total; ?></span>
@@ -58,9 +56,7 @@
 
     <!-- Content -->
     <div class="container-fluid content">
-      <div class="header-content d-flex align-items-baseline justify-content-between">
-        <a class="navbar-brand text-white" href="/"> Nurv<span style="color: rgba(255, 138, 0, 1)">Albiky</span></a>
-      </div>
+      <a class="navbar-brand text-white" href="/"> Nurv<span style="color: rgba(255, 138, 0, 1)">Albiky</span></a>>
       <div class="container-fluid mt-4 card-produk">
         <div class="d-flex flex-wrap ms-5 gap-4">
           <?php foreach ($product as $p) : ?>
@@ -83,8 +79,7 @@
       <?php endforeach; ?>
       </div>
     </div>
-  </div>
-  <!-- end Content -->
+    <!-- end Content -->
   </div>
 </body>
 

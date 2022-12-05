@@ -46,7 +46,7 @@
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link py-3 border-bottom" title="cart" data-bs-toggle="tooltip" data-bs-placement="right">
+          <a href="<?= base_url("/checkout") ?>" class="nav-link py-3 border-bottom" title="cart" data-bs-toggle="tooltip" data-bs-placement="right">
             <img src=<?= base_url("./Assets/images/cart.png") ?> height="35px" width="35px" alt="Cart" />
             <span class="position-absolute top-80 start-25 translate-middle badge rounded-circle bg-danger">
               <span><?= $total; ?></span>

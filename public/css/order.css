@@ -35,7 +35,7 @@
 
 .left-navbar {
   background-color: #ff8a00;
-  height: 100vh;
+  height: 150vh;
 }
 
 .nav-link.active {
@@ -43,7 +43,6 @@
 }
 
 .content {
-  height: 100vh;
   background-color: #681306;
   margin: 0;
 }
@@ -205,7 +204,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #767676;
+  background-color: #ff8a00;
   border-radius: 10px;
 }
 
@@ -216,4 +215,76 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(54, 56, 58);
+}
+
+.header-content {
+  height: 100vh;
+  background-color: #ff8a00;
+}
+.container-main {
+  width: 50%;
+  min-height: 90vh;
+}
+.container-judul {
+  width: 100%;
+  background-color: #ff8a00;
+  color: white;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  border-radius: 20px;
+  text-align: center;
+}
+.text-subjudul {
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+  margin-top: 20px;
+}
+.input {
+  width: 100%;
+  padding: 6px 15px;
+  border-radius: 10px;
+  border: 1px solid #ff8a00;
+  color: #ffffff;
+}
+.input:focus {
+  outline: 1px solid #ff8a00;
+}
+.input::placeholder {
+  color: rgb(210, 210, 210);
+}
+.edit-order {
+  border: 1px solid #ff8a00;
+  border-radius: 5px;
+}
+
+.total {
+  border: 1px solid #ff8a00;
+  border-radius: 10px;
+  padding: 5px 30px;
+}
+
+.summary p {
+  font-family: "outfit";
+  font-size: 14px;
+  margin: 5px 0px 0px;
+}
+
+.btn-order {
+  width: 100%;
+  background-color: #ff8a00;
+  border: none;
+  color: white;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 21px;
+}
+.btn-order:hover {
+  opacity: 0.8;
+}
+
+.container-checkout {
+  height: 250px;
+  overflow-y: auto;
 }
